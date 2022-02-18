@@ -1,0 +1,48 @@
+/* .addpostform{
+    color: white;
+    background-color: #12274D;
+    text-align: center;
+    border-radius: 12px;
+    padding-top: 100px;
+    padding-bottom: 70px;
+    margin: 50px 40px 40px 40px;
+
+} */ 
+*{
+    font-family: Tahoma;
+}
+.addpostform1{ 
+    color: white;
+    background-color: #12274D;
+    margin: 50px 100px 40px 100px;
+    border-radius: 20px;
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+}
+.deleteform{ 
+    color: white;
+    text-align: center;
+    background-color: #12274D;
+    border-radius: 20px;
+    margin: 50px 450px 40px 450px;
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+}
+.editform{ 
+    color: white;
+    background-color: #12274D;
+    margin: 50px 100px 40px 100px;
+    border-radius: 20px;
+    padding-top: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+}
+#title1{
+    background-color: red;
+    color: red;
+}

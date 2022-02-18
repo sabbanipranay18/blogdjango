@@ -1,0 +1,33 @@
+*{
+    font-family: Tahoma;
+}
+.myblogs{
+    font-size: large;
+    color: white;
+    margin: auto;
+    
+    padding-top: 70px;
+    
+}
+#readmore3{
+    margin-left: 38%;
+}
+#delete1{
+    margin-left: 1%;
+}
+#edit1{
+    margin-left: 1%;
+}
+
+
+.column88 {
+    float: left;
+    width: 50%;
+    padding: 1px;
+  }
+  
+  .row88::after {
+    content: "";
+    clear: both;
+    display: table;
+  }

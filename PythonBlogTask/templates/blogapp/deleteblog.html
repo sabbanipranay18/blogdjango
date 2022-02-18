@@ -1,0 +1,19 @@
+{% extends 'blogapp\base.html' %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<br><br>
+<a href="{% url 'home' %}" class="btn btn-secondary">< Back</a>
+    <h1>Delete Blog Post</h1>
+    <form method="POST", class="deleteform">
+        {% csrf_token %}
+    <strong>Are You Sure?</strong><br><br>
+    <button class="btn btn-secondary">Delete</button>
+    </form>
+
+{% else %}
+<h1>You have No authentication!</h1><br><br>
+{% endif %}
+<br><br><br><br><br><br><br>
+
+{% endblock %}

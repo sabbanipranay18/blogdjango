@@ -1,0 +1,73 @@
+*{
+    font-family: Tahoma;
+}
+body{
+    background-color: #fff;
+}
+.list{
+    /* background-color: #12274D;
+    color: white;
+    font-size: 20px;
+    border-radius: 12px;
+    padding-top: 70px;
+    padding-bottom: 70px;
+    padding-right: 20px;
+    margin: 25px 100px 50px 100px; */
+    /* margin: auto; */
+    /* padding-left: 50px;
+    padding-top: 50px;
+    padding-right: 50px; */
+    font-size: large;
+    color: rgb(255, 255, 255);
+    
+}
+
+h1{
+    color: white;
+    text-align: center;
+    
+}
+
+.logindetails{
+    /* background-color: #848785; */
+    text-align: right;
+}
+#button1{
+    background-color: #12274D;
+    
+    /* border-radius: 12px; */
+}
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+#readmore5{
+    margin-left: 1%;
+} 
+#edit5{
+    margin-left: 41%;
+}
+#readmore2{
+    margin-left: 45%;
+ 
+}
+
+
+
+.column {
+  float: left;
+  width: 50%;
+  padding: 1px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+h3{
+
+    color: #FF951E;
+    font-family: Tahoma;
+}

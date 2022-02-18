@@ -1,0 +1,49 @@
+{% extends 'blogapp/base.html' %}
+{% load static %}
+{% block title %}Create a New Blog...{% endblock %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/addblog.css' %}">
+    
+    <title>Document</title>
+</head>
+<body>
+
+{% block content %}
+{% if user.is_authenticated %}
+<br><br>
+<a href="{% url 'home' %}" class="btn btn-secondary">< Back</a>
+    <h1>Add Blog Post</h1>
+
+<div class="addpostform1">
+    <div class="form-group">
+        <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.media}}
+        {{ form.as_p}}
+        <button class="btn btn-secondary">Post</button>
+        </form>
+    </div>
+</div>
+
+
+<script>
+    var name = "{{ user.id }}";
+    document.getElementById("author").value = name;
+</script>
+
+
+{% else %}
+    <h1>You have no authentication!</h1><br><br>
+
+{% endif %}
+{% endblock %}
+</body>
+</html>

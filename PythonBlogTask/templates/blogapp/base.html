@@ -1,0 +1,167 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/blogdetailss.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signin.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/addblog.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/myblogss.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}">
+
+
+
+
+    <title>Blog</title>
+  </head>
+  
+  <body>
+    <!-- <nav>
+      <img src="{% static 'images/header.jpg' %}" alt="" width="1518" height="100">
+    </nav> -->
+    <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/bloglogo.png' %}" alt="" width="" height=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+            
+            <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li> -->
+
+            
+              {% if user.is_authenticated %}
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item" id="home88">
+                    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                  </li>
+              <li class="nav-item" id="myblog88">
+                <a class="nav-link active" aria-current="page" href="{% url 'myblogs' %}">MyBlogs</a>
+              </li>
+              <li class="nav-item" id="addblog88">
+              <a class="nav-link active" aria-current="page" href="{% url 'addblog' %}">AddBlog</a>
+            </li>
+
+          </ul>
+          {% else %}
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item" id="home888">
+                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+              </li>
+  
+            {% endif %}
+            
+
+          <form class="d-flex" id="search88" method=POST action="{% url 'search' %}">
+            {% csrf_token %}
+            <input class="form-control me-2" type="search" placeholder="Search Blogs" aria-label="Search" id="searchinput88" name="searched">
+            <button  type="submit" id="srch00"><img src="{% static 'images/search.png' %}" alt="" width="20" height="22"></button>
+          </form>
+          
+<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      {% if user.is_authenticated %}   
+            <div class="loginpage">
+            <li class="nav-item" id="logout888">
+              <a class="nav-link active" aria-current="page" href="{% url 'signout' %}">LogOut</a>
+            </li>
+            
+      {% else %}
+            <li class="nav-item" id="register88">
+              <a class="nav-link active" class="btn btn-secondary" aria-current="page" href="{% url 'signup' %}">Register</a>
+            </li>
+            <li class="nav-item" id="login88">
+              <a class="nav-link active" aria-current="page" href="{% url 'signin' %}">Login</a>
+            </li>
+          </div>
+          
+        </ul>{% endif %}
+          
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      {% block content %}
+
+      {% endblock %}
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    -->
+
+
+<div id="footer">    
+<!-- Footer -->
+<footer class="page-footer font-small unique-color-dark pt-4">
+
+  <!-- Footer Elements -->
+  <div class="container">
+
+    <!-- Call to action -->
+    <ul class="list-unstyled list-inline text-center py-2">
+      
+    {% if user.is_authenticated %}
+        <li class="list-inline-item">
+        <h5 class="mb-1">Click Here to LogOut >></h5>
+        </li>
+        <li class="list-inline-item">
+        <a href="{% url 'signout' %}" class="btn btn-outline-secondary btn-rounded" >LogOut</a>
+        </li>
+        </ul>
+    {% else %}
+        <li class="list-inline-item">
+        <h5 class="mb-1">Register For Free</h5>
+        </li>
+        <li class="list-inline-item">
+        <a href="{% url 'signin' %}" class="btn btn-outline-secondary btn-rounded" >Register</a>
+        </li>
+        </ul>
+    {% endif %}
+
+    <!-- Call to action -->
+
+  </div>
+  <!-- Footer Elements -->
+
+  <!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2022 Copyright:
+    <a href=""> MyBlog.in </a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
+</div>
+
+
+  </body>
+</html>
+

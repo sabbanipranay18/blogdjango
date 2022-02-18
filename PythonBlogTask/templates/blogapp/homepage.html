@@ -1,0 +1,96 @@
+{% extends 'blogapp/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    <title>Blog</title>
+</head>
+
+
+{% block content %}
+<br>
+    
+
+    {% if user.is_authenticated %}
+    <div class="header">
+        <h1>Welcome {{ user.first_name }}</h1>
+    </div><hr>
+    {% else %}
+    <div class="header">
+    <h1>Blogs</h1>
+    </div><br><br>
+    {% endif %}
+
+
+<body>
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role= "alert">
+    <strong>Message:</strong>{{ message }}
+    <button type="button" class="close" data-dissmiss="alert" aria-label="close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    {% endfor %}
+
+
+    
+<!-- <div class="logindetails">
+    {% if user.is_authenticated %}
+    
+    <button type="submit" id="button1" class="btn btn-secondary"><a href="/signout"> SignOut </a></button>
+
+    {% else %}
+    <button type="submit" id="button1" class="btn btn-secondary"><a href="/signup"> SignUp </a></button>
+    <button type="submit" id="button1" class="btn btn-secondary"><a href="/signin"> SignIn </a></button>
+    {% endif %}
+</div> -->
+
+<br><br><br><br><br>
+<ul class="list" >
+{% for post in object_list %}
+    <h3><b>{{post.title}}</b></h3>  
+    <hr><br>
+    <i>Author:</i> {{post.author.first_name }} {{post.author.last_name}} - <i>[{{ post.post_date }}]</i><br><br><br>
+
+<div class="row">
+<div class="column">
+    {% if post.headerimage %}
+     <img src="{{ post.headerimage.url }}" width="600" height="400">
+    {% endif %}
+</div>
+
+<div class="column">
+        {{post.body|slice:":1100"|safe }}
+</div>
+</div>
+    <br>
+
+    {% if user.is_authenticated %}
+        {% if user.id == post.author.id %}  
+             <button class="btn btn-secondary" id="edit5"><a href="{% url 'editblog' post.pk %} ">Edit Post</a></button>
+             <button class="btn btn-primary" id="readmore5"><a href="{% url 'blogdetails' post.pk %} ">Readmore</a></button>
+             <hr><br><br><br><br><br><br>
+             {% else %}
+             <button class="btn btn-primary" id="readmore2"><a href="{% url 'blogdetails' post.pk %} ">Readmore</a></button>
+             <hr><br><br><br><br><br><br>
+            
+        {% endif %}
+        {% else %}
+             <button class="btn btn-primary" id="readmore2"><a href="{% url 'blogdetails' post.pk %} ">Readmore</a></button>
+             <hr><br><br><br><br><br><br>
+        
+    {% endif %}
+    
+    
+    {% endfor %}
+</ul>
+
+
+{% endblock %}
+</body>
+</html>

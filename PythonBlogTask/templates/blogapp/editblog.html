@@ -1,0 +1,28 @@
+{% extends 'blogapp\base.html' %}
+{% block content %}
+
+<br><br>
+
+{% if user.is_authenticated %}
+   {% if user.id == post.author.id %}  
+   <a href="{% url 'myblogs' %}" class="btn btn-secondary">< Back</a>
+        <h1>Edit Blog Post</h1>
+        <div class="form-group">
+        <form method="POST", class="editform">
+        {% csrf_token %}
+
+        {{ form.media}}
+        {{ form.as_p}}
+        <center>
+        <button class="btn btn-primary" id="update111">Update</button>
+    </center>
+        </form>
+        </div>
+    {% else %}
+        <h1>You have no authentication!</h1>
+{% endif %}
+{% else %}
+    <h1>You have no authentication!</h1><br><br>
+
+{% endif %}
+{% endblock %}

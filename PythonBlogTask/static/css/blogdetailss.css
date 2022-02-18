@@ -1,0 +1,25 @@
+*{
+    font-family: Tahoma;
+}
+.blogdetails{
+    font-size: large;
+    color: white;
+    margin: auto;
+    
+    padding-top: 70px;
+    
+}
+#bt1{
+    margin-left: 42%;
+}
+#delete{
+    margin-left: 1%;
+} 
+.container88{
+    margin-left: 10%;
+    margin-right: 55%;
+}
+.container888{
+    margin-left: 9%;
+    margin-right: 10%;
+}

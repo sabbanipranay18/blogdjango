@@ -1,0 +1,34 @@
+{% extends 'blogapp/base.html' %}
+{% block content %}
+
+<br><br>
+<div class="container0">
+    {% if searched %}
+    
+        <h1>You searched for "{{ searched }}"</h1><hr><br><br><br><br>
+
+        {% for results in searchresults %}
+
+        <div class="container0000">
+        <h3>{{results.title}}</h3><hr> <br>
+         <i>Author: </i> {{ results.author }} {{results.post_date}}<br><br><br>
+        </div>
+
+         <div class="container00">
+           <img src="{{ results.headerimage.url }}" width="1000" height="600" ><br><br><br>
+        </div>
+        <div class="container000">
+           {{ results.body|safe }} <br> 
+           <a href="{% url 'home' %}" class="btn btn-secondary">< Back</a><br><br><br>
+        </div>
+        </div>
+        {% endfor %}
+
+        
+    {% else %}
+        <h1>Hey, You Forget to Search</h1>
+    {% endif %}
+
+
+
+{% endblock %}

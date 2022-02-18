@@ -1,0 +1,33 @@
+{% extends 'blogapp/base.html' %}
+
+{% block content %}
+<br><br>
+<a href="{% url 'home' %}" class="btn btn-secondary">< Back</a>
+<div class="myblogs">
+{% for post in object_list %}
+    {% if user.id == post.author.id %}
+        <h3>{{post.title}}</h3>  
+        <hr><br>
+        <i>Author:</i> {{post.author.first_name }} {{post.author.last_name}} - <i>[{{ post.post_date }}]</i>
+      
+    <hr>
+    <div class="row88">
+        <div class="column88">
+            {% if post.headerimage %}
+             <img src="{{ post.headerimage.url }}" width="600" height="400">
+            {% endif %}
+        </div>
+        
+        <div class="column88">
+                {{post.body|slice:":1100"|safe }}
+        </div>
+        </div><br><br>
+    
+        <button class="btn btn-primary" id="readmore3"><a href="{% url 'blogdetails' post.pk %} ">Readmore</a></button>
+        <button class="btn btn-secondary" id="edit1" ><a href="{% url 'editblog' post.pk %} ">Edit Post</a></button>
+        <button class="btn btn-danger" id="delete1"><a href="{% url 'deleteblog' post.pk %} ">Delete Post</a></button><br>
+        <hr><br><br><br>
+    {% endif %}
+{% endfor %}
+</div>
+{% endblock %}

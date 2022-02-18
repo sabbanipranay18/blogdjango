@@ -1,0 +1,36 @@
+{% extends 'blogapp/base.html' %}
+
+{% block content %}
+<div class="blogdetails">
+<h1>{{post.title}}</h1><br><br><br><br>
+
+
+<small>Author: {{post.author.first_name}} 
+           {{post.author.last_name}} - 
+           <i>[{{ post.post_date }}]</i>
+
+<hr>
+<br>
+<div class="container88">
+{% if post.headerimage %}
+     <img src="{{ post.headerimage.url }}" width="1000" height="600" >
+{% endif %}
+</div>
+<br><br>
+
+<div class="container888">
+{{ post.body|safe }}
+</div>
+<br>
+{% if user.is_authenticated %}
+    {% if user.id == post.author.id %}
+    <button class="btn btn-secondary" id="bt1"><a href="{% url 'editblog' post.pk %} ">Edit Post</a></button>
+    <button class="btn btn-danger" id="delete"><a href="{% url 'deleteblog' post.pk %} ">Delete</a></button><br><br><br>
+    {% endif %}
+{% endif %}
+
+<br>
+<a href="{% url 'home' %}" class="btn btn-secondary">< Back</a>
+</div><br>
+
+{% endblock %}
